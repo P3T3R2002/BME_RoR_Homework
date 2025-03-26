@@ -8,3 +8,28 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+div#main {
+    height: 600px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+div#footer {
+    height: 100px;
+    text-align: center;
+    background-color: #ccc;
+}
+div#menu {
+    float: left;
+}
+div.user_input {
+    width: 220px;
+}
+div.field {
+    margin: 5px;
+}
+div#inspect{
+    border: 1px solid;
+}

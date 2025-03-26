@@ -1,35 +1,52 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <%= link_to "First Try", root_path, class:"navbar-brand"%>
+    <%= link_to "Home", root_path, class:"navbar-brand"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <%= link_to "About Us", "#", class:"nav-link"%>
+            <%= link_to "About Us", home_about_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
-            <%= link_to "Prices", "#", class:"nav-link"%>
+            <%= link_to "Prices", home_price_path, class:"nav-link"%>
         </li>
       
       <% if logged_in? %>
-        <li class="nav-item">
-            <%= link_to "Profile", "#", class:"nav-link"%>
-        </li>
 
-        </ul>
+        <% if is_admin? %>
+
+          <li class="nav-item">
+              <%= link_to "Orders", "#", class:"nav-link"%>
+          </li>
+
+          </ul>
+
+        <% else %>
+
+          <li class="nav-item">
+              <%= link_to "Profile", home_profile_path, class:"nav-link"%>
+          </li>
+
+          <li class="nav-item">
+              <%= link_to "My orders", "#", class:"nav-link"%>
+          </li>
+
+          </ul>
         
-        <div class="logout">
-          <button class="btn btn-danger" href="#">Logout</button>
-        </div>
+          <div class="logout">
+            <button class="btn btn-danger" href="#">Logout</button>
+          </div>
+
+        <% end %>
 
       <% else %>
         </ul>
 
         <div class="login">
-          <button class="btn btn-danger" href="#">Register</button>
-          <button class="btn btn-success" href="#">Login</button>
+          <%= link_to "Register", new_user_path, class: "btn btn-danger", role: "button" %>
+          <%= link_to "Login", users_path, class: "btn btn-success", role: "button" %>
         </div>
 
       <% end %>

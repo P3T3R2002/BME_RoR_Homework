@@ -25,7 +25,29 @@
   </head>
 
   <body>
-    <%= render "home/header" %>
-    <%= yield %>
+    <div id="page">
+
+      <div id="header">
+        <%= render "home/header" %>
+      </div>
+
+      <br><br>
+
+      <div id="main">
+
+        <div id="menu"></div>
+
+        <div id="content">
+          <% if notice %>
+            <%= render "layouts/alerts"%>
+          <% end %>
+          <%= yield %>
+        </div>
+
+      </div>
+
+      <div id="footer">RoR, 2025</div>
+
+    </div>
   </body>
 </html>
