@@ -1,0 +1,29 @@
+<% content_for :title, "Orders" %>
+
+<h1>Orders</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Place</th>
+      <th>Radius</th>
+      <th>Depth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.place %></td>
+        <td><%= order.radius %></td>
+        <td><%= order.depth %></td>
+        <td><%= link_to "Show", order %></td>
+        <td><%= link_to "Edit", edit_order_path(order) %></td>
+        <td><%= link_to "Destroy", order_path(order), data: { turbo_method: :delete } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New order", new_order_path %>

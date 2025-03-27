@@ -1,0 +1,33 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="user_input">
+
+    <div class="field form-group">
+      <%= form.text_field :place, class:"form-control", placeholder:"N:xxxx ; E:yyyy" %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.select :radius, options_for_select([10, 20, 30, 40]), { prompt: 'Select a radius' }, { class: 'form-control' } %>
+    </div>
+
+    <div class="field form-group">
+      <%= form.text_field :depth, class:"form-control" %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+
+  </div>
+<% end %>

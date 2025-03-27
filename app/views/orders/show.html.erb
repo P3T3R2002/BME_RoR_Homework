@@ -1,0 +1,16 @@
+<div id="inspect">
+  <div class="bg-info p-2 text-dark bg-opacity-50">
+
+    <p class="lead">
+      <b>Place: </b><%= @order.place %>
+    </p>
+    <p class="lead">
+      <b>Radius: </b><%= @order.radius %>
+    </p>
+    <p class="lead">
+      <b>Depth: </b><%= @order.depth %>
+    </p>
+
+    <%= link_to "Back", orders_path, class:"btn btn-secondary" %>
+  </div>
+</div>

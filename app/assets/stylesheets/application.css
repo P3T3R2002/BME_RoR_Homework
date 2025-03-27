@@ -15,6 +15,17 @@ div#main {
     align-items: flex-start;
     justify-content: center;
     text-align: center;
+    background-color: green;
+}
+div#content {
+    margin: 10px;
+    height: 500px;
+    width: 600px;
+    text-align: center;
+    background-color: greenyellow;
+} 
+div#notice {
+    margin: 10px;
 }
 div#footer {
     height: 100px;
@@ -25,11 +36,26 @@ div#menu {
     float: left;
 }
 div.user_input {
+    margin: 10px;
+    margin-left: 190px;
+    margin-right: 190px;
     width: 220px;
+    background-color: blue;
 }
 div.field {
-    margin: 5px;
+    margin: 10px;
 }
 div#inspect{
+    margin: 20px;
     border: 1px solid;
+}
+h1#register {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+div#back_to {
+    text-align: center;
+}
+table.table {
+    margin: 10px;
 }

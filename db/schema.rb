@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_26_203845) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_27_104202) do
   create_table "admins", force: :cascade do |t|
     t.boolean "is_admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "place"
+    t.integer "radius"
+    t.integer "depth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
