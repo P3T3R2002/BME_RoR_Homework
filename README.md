@@ -12,7 +12,7 @@ Ezen kívül a képeket és a szövegeket kell csak behelyezni.
 
 * Egy kicsit máshogy oldottam meg a feladatot mint ahogy az ki lett írva. Ezzel kapcsolatban mindenféle visszajelzést szivesen várok.
 
-* E-mellett az megfelelő, hogyha a Git repot belinkelem a továbbiakban?
+* E-mellett az megfelelő, hogyha a Git repot belinkelem a továbbiakban is?
 
 
 
