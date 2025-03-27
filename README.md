@@ -10,7 +10,7 @@ Ezen kívül a képeket és a szövegeket kell csak behelyezni.
 
 * A három lehetőség közül a (logged_in? == false), (logged_in? == true && is_admin? == false), (logged_in? == true  && is_admin? == true)
 
-** Mindenféle visszajelzést szivesen várok. **
+* Mindenféle visszajelzést szivesen várok.
 
 
 
