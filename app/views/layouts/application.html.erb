@@ -33,15 +33,18 @@
 
       <div id="main">
 
-        <div id="menu"></div>
-
         <div id="content">
+
           <% if notice %>
+
             <div id="notice">
               <%= render "layouts/alerts"%>
             </div>
+
           <% end %>
+
           <%= yield %>
+
         </div>
 
       </div>

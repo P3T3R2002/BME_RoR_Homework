@@ -32,9 +32,6 @@ div#footer {
     text-align: center;
     background-color: #ccc;
 }
-div#menu {
-    float: left;
-}
 div.user_input {
     margin: 10px;
     margin-left: 190px;
