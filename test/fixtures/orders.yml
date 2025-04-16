@@ -2,10 +2,10 @@
 
 one:
   place: MyString
-  radius: 1
+  diameter: 1
   depth: 1
 
 two:
   place: MyString
-  radius: 1
+  diameter: 1
   depth: 1

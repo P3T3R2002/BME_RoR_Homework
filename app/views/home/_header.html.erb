@@ -1,60 +1,86 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <%= link_to "Home", root_path, class:"navbar-brand"%>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-            <%= link_to "About Us", home_about_path, class:"nav-link"%>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Prices", home_price_path, class:"nav-link"%>
-        </li>
-      
-      <% if logged_in? %>
-
-        <% if is_admin? %>
-
-          <li class="nav-item">
-              <%= link_to "Orders", orders_path, class:"nav-link"%>
-          </li>
-
-          </ul>
-        
-          <div class="logout">
-            <button class="btn btn-danger" href="#">Logout</button>
-          </div>
-
-        <% else %>
-
-          <li class="nav-item">
-              <%= link_to "Profile", home_profile_path, class:"nav-link"%>
-          </li>
-
-          <li class="nav-item">
-              <%= link_to "My orders", "#", class:"nav-link"%>
-          </li>
-
-          </ul>
-        
-          <div class="logout">
-            <button class="btn btn-danger" href="#">Logout</button>
-          </div>
-
-        <% end %>
-
-      <% else %>
-        </ul>
-
-        <div class="login">
-          <%= link_to "Register", new_user_path, class: "btn btn-danger", role: "button" %>
-          <%= link_to "Login", users_path, class: "btn btn-success", role: "button" %>
+<header id="masthead" class="site-header">
+  <a class="home-link" href="/" rel="home">
+    <h1 class="site-title">KÚTFÚRÁS</h1>
+    <h2 class="site-description">+36-30-365-3878 www.vasidrill.hu</h2>
+  </a>
+  <div id="navbar" class="navbar" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div class="nav-head">
+          <b><%= link_to "Vasi Drill", root_path, class:"navbar-brand"%></b>
         </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <%= link_to "About Us", home_about_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Drilling", home_drilling_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Authorization", home_authorization_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Compensation", home_compensation_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Questions", home_questions_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "References", home_references_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Prices", home_price_path, class:"nav-link"%>
+            </li>
+          
+          <% if user_signed_in? %>
 
-      <% end %>
+            <% if current_user.is_admin %>
 
-    </div>
+              <li class="nav-item">
+                  <%= link_to "Orders", orders_path, class:"nav-link"%>
+              </li>
+
+              </ul>
+            
+              <div class="logout">
+                <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger", role: "button" %>
+              </div>
+
+            <% else %>
+
+              <li class="nav-item">
+                  <%= link_to "Profile", edit_user_registration_path, class:"nav-link"%>
+              </li>
+
+              <li class="nav-item">
+                  <%= link_to "My orders", orders_path, class:"nav-link"%>
+              </li>
+
+              <li class="nav-item">
+                  <%= link_to "Add order", new_order_path, class:"nav-link"%>
+              </li>
+
+              </ul>
+            
+              <div class="logout">
+                <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger", role: "button" %>
+              </div>
+
+            <% end %>
+
+          <% else %>
+            </ul>
+
+            <div class="login">
+              <%= link_to "Register", new_user_registration_path, class: "btn btn-danger", role: "button" %>
+              <%= link_to "Login", new_user_session_path, class: "btn btn-success", role: "button" %>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</header>

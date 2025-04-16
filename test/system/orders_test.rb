@@ -15,8 +15,8 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "New order"
 
     fill_in "Depth", with: @order.depth
+    fill_in "Diameter", with: @order.diameter
     fill_in "Place", with: @order.place
-    fill_in "Radius", with: @order.radius
     click_on "Create Order"
 
     assert_text "Order was successfully created"
@@ -28,8 +28,8 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "Edit this order", match: :first
 
     fill_in "Depth", with: @order.depth
+    fill_in "Diameter", with: @order.diameter
     fill_in "Place", with: @order.place
-    fill_in "Radius", with: @order.radius
     click_on "Update Order"
 
     assert_text "Order was successfully updated"

@@ -11,23 +11,26 @@
     </div>
   <% end %>
 
-  <div class="user_input">
+  <div>
+    <%= form.label :place, style: "display: block" %>
+    <%= form.text_field :place %>
+  </div>
 
-    <div class="field form-group">
-      <%= form.text_field :place, class:"form-control", placeholder:"N:xxxx ; E:yyyy" %>
-    </div>
+  <div>
+    <%= form.label :diameter, style: "display: block" %>
+    <%= form.number_field :diameter %>
+  </div>
 
-    <div class="field form-group">
-      <%= form.select :radius, options_for_select([10, 20, 30, 40]), { prompt: 'Select a radius' }, { class: 'form-control' } %>
-    </div>
+  <div>
+    <%= form.label :depth, style: "display: block" %>
+    <%= form.number_field :depth %>
+  </div>
 
-    <div class="field form-group">
-      <%= form.text_field :depth, class:"form-control" %>
-    </div>
+  <div>
+    <%= form.number_field :user_id, id: :order_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
 
-    <div>
-      <%= form.submit %>
-    </div>
-
+  <div>
+    <%= form.submit %>
   </div>
 <% end %>

@@ -42,14 +42,27 @@
             </div>
 
           <% end %>
-
-          <%= yield %>
+          
+          <div class="container">
+            <div class="row align-items-start">
+              <div class="col-8">
+                <div class="primary">
+                  <%= yield %>
+                </div>
+              </div>
+              <div class="col-4">
+                <%= render "home/secondary" %>
+              </div>
+            </div>
+          </div>
 
         </div>
 
       </div>
 
-      <div id="footer">RoR, 2025</div>
+      <div id="footer">
+        <%= render "home/footer" %>
+      </div>
 
     </div>
   </body>

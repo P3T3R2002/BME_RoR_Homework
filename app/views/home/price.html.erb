@@ -1,2 +1,23 @@
-<h1>Prices</h1>
-<p>Prices page is here!</p>
+<div class="Price">
+    <header>
+		<h1>Árak</h1>
+    </header>
+    <div class="container">
+        <div class="row align-items-start">				
+            <h3>A kútfúrás árképzéséhez alapjául szolgáló tételek</h3>
+                <ul>
+                    <li>Kiszállási díj</li>
+                    <li>Fúrási mélység</li>
+                    <li>Fúrás ára</li>
+                    <li>Anyagár /PVC cső, kavics,szűrőcső,háló …stb./</li>
+                    <li>Csövezés, kavicsolás</li>
+                    <li>Tisztító szivattyúzás</li>
+                </ul>
+            <h3>
+                <%= link_to "Készítsen előzetes árkalkulációt a tervezett kút fúrásáról itt!", home_price_calculator_path, class:"nav-link"%>
+            </h3>
+            <p>Csak kattintson a zölddel kiemelt cellába, írja be a kért adatot, majd nyomjon egy Entert! A táblázat kiszámolja Önnek az árakat.</p>
+            <p><strong>FIGYELEM! A kapott ár csak tájékoztató jellegű.</strong> Az árak változtatásának jogát fenntartjuk!</p>
+        </div>
+    </div>
+</div>

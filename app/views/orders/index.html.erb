@@ -2,28 +2,52 @@
 
 <h1>Orders</h1>
 
-<table class="table table-striped table-bordered table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th>Place</th>
-      <th>Radius</th>
-      <th>Depth</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="orders">
 
-  <tbody>
-    <% @orders.each do |order| %>
+  <table class="table table-dark table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= order.place %></td>
-        <td><%= order.radius %></td>
-        <td><%= order.depth %></td>
-        <td><%= link_to "Show", order %></td>
-        <td><%= link_to "Edit", edit_order_path(order) %></td>
-        <td><%= link_to "Destroy", order_path(order), data: { turbo_method: :delete } %></td>
+        <% if current_user.is_admin %>
+          <th scope="col">User</th>
+        <% end %>
+        <th scope="col">Place</th>
+        <th scope="col">Diameter</th>
+        <th scope="col">Depth</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% if current_user.is_admin %>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.user_id %></td>
+            <td><%= order.place %></td>
+            <td><%= order.diameter %></td>
+            <td><%= order.depth %></td>
+            <td><%= link_to "Show", order %></td>
+            <td><%= link_to "Edit", edit_order_path(order) %></td>
+            <td><%= link_to "Destroy", order, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @orders.each do |order| %>
+
+          <% if order.user == current_user %>
+            <tr>
+              <td><%= order.place %></td>
+              <td><%= order.diameter %></td>
+              <td><%= order.depth %></td>
+              <td><%= link_to "Show", order %></td>
+              <td><%= link_to "Edit", edit_order_path(order) %></td>
+              <td><%= link_to "Destroy", order, method: :delete, data: { confirm: "Are you sure?" } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+</div>
 
 <%= link_to "New order", new_order_path %>

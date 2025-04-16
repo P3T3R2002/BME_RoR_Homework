@@ -65,6 +65,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.expect(order: [ :place, :radius, :depth ])
+      params.expect(order: [ :place, :diameter, :depth, :user_id ])
     end
 end

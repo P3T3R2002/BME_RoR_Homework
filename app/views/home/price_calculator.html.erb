@@ -1,0 +1,22 @@
+<h1>Simple Price calculator</h1>
+
+<%= form_with url: home_price_calculator_path, method: :post, local: true do %>
+  <div>
+    <%= label_tag :num1, "Depth: " %>
+    <%= number_field_tag :num1 %>
+  </div>
+
+  <div>
+    <%= label_tag :num2, "Diameter: " %>
+    <%= select_tag :num2, options_for_select(@num2_options), prompt: "Select a number" %>
+  </div>
+
+  <div>
+    <%= label_tag :num3, "Number of Wells: " %>
+    <%= number_field_tag :num3 %>
+  </div>
+
+  <div>
+    <%= submit_tag "Calculate" %>
+  </div>
+<% end %>
