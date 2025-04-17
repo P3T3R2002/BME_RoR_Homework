@@ -1,53 +1,49 @@
-<% content_for :title, "Orders" %>
-
-<h1>Orders</h1>
-
-<div id="orders">
-
-  <table class="table table-dark table-striped table-hover">
-    <thead>
-      <tr>
+ <div class="Orders align_middle"> 
+  <% content_for :title, "Orders" %>
+  <% if current_user.is_admin %>
+    <h1>Orders</h1>
+  <% else %>
+    <h1>My Orders</h1>
+  <% end %>
+  <div id="orders">
+    <table class="table table-dark table-striped-columns table-hover align_middle">
+      <thead>
+        <tr>
+          <% if current_user.is_admin %>
+            <th scope="col">User</th>
+          <% end %>
+          <th scope="col" colspan="2">Place</th>
+          <th scope="col" colspan="1">Diameter</th>
+          <th scope="col" colspan="1">Depth</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+      <tbody>
         <% if current_user.is_admin %>
-          <th scope="col">User</th>
-        <% end %>
-        <th scope="col">Place</th>
-        <th scope="col">Diameter</th>
-        <th scope="col">Depth</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if current_user.is_admin %>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.user_id %></td>
-            <td><%= order.place %></td>
-            <td><%= order.diameter %></td>
-            <td><%= order.depth %></td>
-            <td><%= link_to "Show", order %></td>
-            <td><%= link_to "Edit", edit_order_path(order) %></td>
-            <td><%= link_to "Destroy", order, method: :delete, data: { confirm: "Are you sure?" } %></td>
-          </tr>
-        <% end %>
-      <% else %>
-        <% @orders.each do |order| %>
-
-          <% if order.user == current_user %>
+          <% @orders.each do |order| %>
             <tr>
-              <td><%= order.place %></td>
+              <td><%= link_to "User", profiles_show_path(order.user_id) %></td>
+              <td colspan="2"><%= order.place %></td>
               <td><%= order.diameter %></td>
               <td><%= order.depth %></td>
               <td><%= link_to "Show", order %></td>
-              <td><%= link_to "Edit", edit_order_path(order) %></td>
-              <td><%= link_to "Destroy", order, method: :delete, data: { confirm: "Are you sure?" } %></td>
             </tr>
           <% end %>
+        <% else %>
+          <% @orders.each do |order| %>
+
+            <% if order.user == current_user %>
+              <tr>
+                <td colspan="2"><%= order.place %></td>
+                <td colspan="1"><%= order.diameter %> mm</td>
+                <td colspan="1"><%= order.depth %> m</td>
+                <td colspan="1"><%= link_to "Show", order %></td>
+              </tr>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-
-
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "New order", new_order_path %>
 </div>
-
-<%= link_to "New order", new_order_path %>

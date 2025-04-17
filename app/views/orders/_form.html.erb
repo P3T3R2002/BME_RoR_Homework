@@ -11,26 +11,46 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form_row">
     <%= form.label :place, style: "display: block" %>
-    <%= form.text_field :place %>
+    <%= form.text_field :place, placeholder: "47.154407 : 16.584029" %>
   </div>
 
-  <div>
-    <%= form.label :diameter, style: "display: block" %>
-    <%= form.number_field :diameter %>
-  </div>
-
-  <div>
+  <div class="form_row">
     <%= form.label :depth, style: "display: block" %>
-    <%= form.number_field :depth %>
+    <%= form.number_field :depth, class: "form-range", type: 'range', min: 1, max: 25, step: 1, id: 'depth-range' %><br>
+    <span id="depth-value"><%= @order.depth || 0 %></span>
+    <span> m</span>
+  </div>
+  
+  <div class="form_row">
+    <%= form.label :diameter, style: "display: block" %>
+    <%= form.select :diameter, options_for_select([160, 200]) %>
+    <span> mm</span>
   </div>
 
   <div>
     <%= form.number_field :user_id, id: :order_user_id, class:"form-control", value: current_user.id, type: :hidden %>
   </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const range = document.getElementById("depth-range");
+    const valueDisplay = document.getElementById("depth-value");
+
+    if (range && valueDisplay) {
+      // Show initial value
+      valueDisplay.textContent = range.value;
+
+      // Update value live as the slider moves
+      range.addEventListener("input", () => {
+        valueDisplay.textContent = range.value;
+      });
+    }
+  });
+</script>

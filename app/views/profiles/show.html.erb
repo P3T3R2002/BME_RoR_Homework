@@ -1,0 +1,8 @@
+<div class="Show_profile align_middle">
+    <h1>Profile</h1>
+    <%= render "profiles/user" %>
+    <% if !current_user.is_admin %>
+        <%= link_to "Edit user", edit_user_registration_path %> | 
+    <% end %>
+    <%= link_to "Back to orders", orders_path %> 
+</div>

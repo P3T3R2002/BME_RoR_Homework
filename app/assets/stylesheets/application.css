@@ -199,3 +199,16 @@ header a {
 .References th {
     text-align: center;
 }
+.logout {
+    margin-left: 15px;
+}
+.actions {
+    margin: 10px;
+    margin-top: 20px;
+}
+.form-range {
+    width: 40%;
+}
+.form_row {
+    padding: 10px;
+}

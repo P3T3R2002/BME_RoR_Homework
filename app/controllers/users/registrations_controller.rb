@@ -12,15 +12,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do |resource|
-      resource.is_admin = true # params[:user][:is_admin] == '1' # or however you want to determine if the user is an admin
+      resource.is_admin = "itisanadminkey" == ENV['MY_ADMIN_KEY']
       resource.save
     end
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super do |resource|
+      resource.name = params[:user][:name] 
+      resource.phone = params[:user][:phone] 
+      resource.save
+    end
+  end
 
   # PUT /resource
   # def update
