@@ -2,19 +2,22 @@
   <h1>Simple Price calculator</h1>
 
   <%= form_with url: home_price_calculator_path, method: :post, local: true do %>
-    <div>
+    <div class="form_row">
       <%= label_tag :num1, "Depth: ", style: "display: block" %>
-      <%= number_field_tag :num1 %>
+      <%= text_field_tag :num1, params[:num1] || 0, type: 'range', class: "form-range", min: 1, max: 25, step: 1, id: 'depth-range' %><br>
+      <span id="depth-value"><%= params[:num1] || 0 %></span>
+      <span> m</span>
     </div>
 
-    <div>
+    <div class="form_row">
       <%= label_tag :num2, "Diameter: ", style: "display: block" %>
-      <%= select_tag :num2, options_for_select(@num2_options), prompt: "Select a number" %>
+      <%= select_tag :num2, options_for_select(@num2_options), required: true %>
+      <span> mm</span>
     </div>
 
-    <div>
+    <div class="form_row">
       <%= label_tag :num3, "Number of Wells: ", style: "display: block" %>
-      <%= number_field_tag :num3 %>
+      <%= number_field_tag :num3, required: true %>
     </div>
 
     <div class="actions">
@@ -22,3 +25,18 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    const range = document.getElementById("depth-range");
+    const output = document.getElementById("depth-value");
+
+    if (range && output) {
+      output.textContent = range.value;
+
+      range.addEventListener("input", function () {
+        output.textContent = this.value;
+      });
+    }
+  });
+</script>

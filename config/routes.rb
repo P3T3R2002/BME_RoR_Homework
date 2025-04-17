@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :orders
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  
+
   get 'profiles/show/:id', to: 'profiles#show', as: 'profiles_show'
 
 
@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   get "home/references"
   get "home/questions"
   get "home/authorization"
+  get "home/CV"
+  get "home/VH_auth"
+  get "home/indastrial_wells"
+  get "home/compensating_wells"
+  get "home/watering_well"
   get "home/compensation"
   get "home/drilling"
   get "home/about"
   get "home/price"
-  get "home/profile"
 
   root "home#index"
 end

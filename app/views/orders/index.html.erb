@@ -10,23 +10,24 @@
       <thead>
         <tr>
           <% if current_user.is_admin %>
-            <th scope="col">User</th>
+            <th scope="col" colspan="2">User</th>
           <% end %>
           <th scope="col" colspan="2">Place</th>
           <th scope="col" colspan="1">Diameter</th>
           <th scope="col" colspan="1">Depth</th>
-          <th colspan="1"></th>
+          <% if !current_user.is_admin %>
+            <th colspan="1"></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
         <% if current_user.is_admin %>
           <% @orders.each do |order| %>
             <tr>
-              <td><%= link_to "User", profiles_show_path(order.user_id) %></td>
+              <td colspan="2"><%= link_to order.user.name, profiles_show_path(order.user_id) %></td>
               <td colspan="2"><%= order.place %></td>
-              <td><%= order.diameter %></td>
-              <td><%= order.depth %></td>
-              <td><%= link_to "Show", order %></td>
+              <td colspan="1"><%= order.diameter %> mm</td>
+              <td colspan="1"><%= order.depth %> m</td>
             </tr>
           <% end %>
         <% else %>

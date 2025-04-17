@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def price_calculator
-    @num2_options = [160, 200]  # Hardcoded options, you can change this if you need dynamic options
+    @num2_options = [["--0--", ""], 160, 200] 
   end
 
   def calculate_price
