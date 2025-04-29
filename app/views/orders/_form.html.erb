@@ -18,14 +18,14 @@
 
   <div class="form_row">
     <%= form.label :depth, style: "display: block" %>
-    <%= form.number_field :depth, class: "form-range", type: 'range', min: 1, max: 25, step: 1, id: 'depth-range' %><br>
+    <%= form.number_field :depth, class: "form-range", type: 'range', min: 1, max: 20, step: 1, id: 'depth-range' %><br>
     <span id="depth-value"><%= @order.depth || 0 %></span>
     <span> m</span>
   </div>
   
   <div class="form_row">
     <%= form.label :diameter, style: "display: block" %>
-    <%= form.select :diameter, [160, 200], { prompt: "000" }, required: true %>
+    <%= form.select :diameter, [160, 200], { prompt: "--0--" }, required: true %>
     <span> mm</span>
   </div>
 

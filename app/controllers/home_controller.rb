@@ -10,9 +10,9 @@ class HomeController < ApplicationController
 
   def calculate_price
     if params[:num2].to_i == 160
-      per_m = 20000
+      per_m = 22000
     elsif params[:num2].to_i == 200
-      per_m = 30000
+      per_m = 24000
     else
       flash[:notice] = "Incorrect diameter!"
       redirect_to home_price_calculator_path

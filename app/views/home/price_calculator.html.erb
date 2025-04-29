@@ -4,7 +4,7 @@
   <%= form_with url: home_price_calculator_path, method: :post, local: true do %>
     <div class="form_row">
       <%= label_tag :num1, "Depth: ", style: "display: block" %>
-      <%= text_field_tag :num1, params[:num1] || 0, type: 'range', class: "form-range", min: 1, max: 25, step: 1, id: 'depth-range' %><br>
+      <%= text_field_tag :num1, params[:num1] || 0, type: 'range', class: "form-range", min: 1, max: 20, step: 1, id: 'depth-range' %><br>
       <span id="depth-value"><%= params[:num1] || 0 %></span>
       <span> m</span>
     </div>
@@ -17,7 +17,7 @@
 
     <div class="form_row">
       <%= label_tag :num3, "Number of Wells: ", style: "display: block" %>
-      <%= number_field_tag :num3, required: true %>
+      <%= number_field_tag :num3, 1, required: true %>
     </div>
 
     <div class="actions">
