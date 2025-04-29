@@ -1,19 +1,10 @@
 # README
 
-Van egykét kérdésem amit nem tudok jelenleg megoldani.
+A felhasználó lehet admin, de ahhoz kell egy kulcs a .evn fájlban.
+**app/controllers/users/registrations_controller.rb/create** függvényból ki lehet olvasni a kulcsot.
+Meg lehet oldani, hogy ez ne látszódjon, vagy jó ez így?
 
-1. Adatbáziskezelés a felhasználó bejelentkezéséhez. Majd később valószínűleg lesz róla szó.
-
-2. A felugró notice-k nem záródnak be, és nemtudom miért?
-
-Ezen kívül a képeket és a szövegeket kell csak behelyezni.
-
-* A három lehetőség közül a (logged_in? == false), (logged_in? == true && is_admin? == false), (logged_in? == true  && is_admin? == true)
-
-* Egy kicsit máshogy oldottam meg a feladatot mint ahogy az ki lett írva. Ezzel kapcsolatban mindenféle visszajelzést szivesen várok.
-
-* E-mellett az megfelelő, hogyha a Git repot belinkelem a továbbiakban is?
-
+Ha valami hiányzik, akkor írjon rám.
 
 
 
@@ -22,7 +13,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: Rails 8.0.2; ruby 3.4.2 (2025-02-15 revision d2930f8e7a) +PRISM [x86_64-linux]
 
 * System dependencies
 
