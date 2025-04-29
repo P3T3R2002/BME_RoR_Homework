@@ -1,7 +1,7 @@
 # README
 
 A felhasználó lehet admin, de ahhoz kell egy kulcs a .evn fájlban.
-**app/controllers/users/registrations_controller.rb/create** függvényból ki lehet olvasni a kulcsot.
+*app/controllers/users/registrations_controller.rb/create* függvényból ki lehet olvasni a kulcsot.
 Meg lehet oldani, hogy ez ne látszódjon, vagy jó ez így?
 
 Ha valami hiányzik, akkor írjon rám.
