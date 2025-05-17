@@ -1,0 +1,47 @@
+<%= form_with(model: drilling) do |form| %>
+  <% if drilling.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(drilling.errors.count, "error") %> prohibited this drilling from being saved:</h2>
+
+      <ul>
+        <% drilling.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :year, style: "display: block" %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div>
+    <%= form.label :place, style: "display: block" %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :drilling_type, style: "display: block" %>
+    <%= form.text_field :drilling_type %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.number_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :drilled_depth, style: "display: block" %>
+    <%= form.number_field :drilled_depth %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_17_083853) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_17_115015) do
   create_table "admins", force: :cascade do |t|
     t.boolean "is_admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drillings", force: :cascade do |t|
+    t.integer "year"
+    t.string "place"
+    t.string "name"
+    t.string "drilling_type"
+    t.integer "amount"
+    t.integer "drilled_depth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +44,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_17_083853) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.integer "year"
+    t.text "project_description"
+    t.string "project_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "table_users", force: :cascade do |t|

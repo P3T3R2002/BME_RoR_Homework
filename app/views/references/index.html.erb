@@ -1,0 +1,42 @@
+<% content_for :title, "References" %>
+
+<h1>References</h1>
+<% if current_user.is_admin %>
+  <%= link_to "New reference", new_reference_path %>
+<% end %>
+<div id="references">
+	<p>
+    <a href="#kuttervezes">Kúttervezés referenciák</a><br>
+    <a href="#kutfuras">Kútfúrás referenciák</a><br>
+  </p>
+
+  <a name="kuttervezes"></a>
+
+  <% @references_by_year.each do |year, references| %>
+    <h2><%= year %></h2>
+    <table class="table table-danger table-striped-columns align_middle">
+      <thead>
+        <tr>
+          <th scope="col" colspan="7">Project Description</th>
+          <th scope="col" colspan="4">Project Type</th>
+          <% if current_user.is_admin %>
+            <th colspan="1"></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% references.each do |ref| %>
+          <tr>
+            <td scope="col" colspan="7"><%= ref.project_description %></td>
+            <td scope="col" colspan="4"><%= ref.project_type %></td>
+            <% if current_user.is_admin %>
+              <td colspan="1"><%= link_to "Show", ref %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+

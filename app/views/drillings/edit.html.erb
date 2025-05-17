@@ -1,0 +1,12 @@
+<% content_for :title, "Editing drilling" %>
+
+<h1>Editing drilling</h1>
+
+<%= render "form", drilling: @drilling %>
+
+<br>
+
+<div>
+  <%= link_to "Show this drilling", @drilling %> |
+  <%= link_to "Back to drillings", drillings_path %>
+</div>

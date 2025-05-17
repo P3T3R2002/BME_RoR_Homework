@@ -1,0 +1,10 @@
+<div class="Show_drillings align_middle">
+  <%= render @drilling %>
+
+  <div>
+    <%= link_to "Edit this drilling", edit_drilling_path(@drilling) %> |
+    <%= link_to "Back to drillings", drillings_path %>
+
+    <%= button_to "Destroy this drilling", @drilling, method: :delete %>
+  </div>
+</div>

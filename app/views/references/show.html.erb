@@ -1,0 +1,10 @@
+<div class="Show_references align_middle">
+  <%= render @reference %>
+
+  <div>
+    <%= link_to "Edit this reference", edit_reference_path(@reference) %> |
+    <%= link_to "Back to references", references_path %>
+
+    <%= button_to "Destroy this reference", @reference, method: :delete %>
+  </div>
+</div>

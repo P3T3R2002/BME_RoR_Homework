@@ -5,7 +5,7 @@
     <%= link_to "Back to orders", orders_path %>
 
     <div class="actions">
-      <%= button_to "Destroy this order", @order, method: :delete %>
+      <%= button_to "Destroy this order", @order, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
     </div>
   </div>
 </div>

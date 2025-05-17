@@ -1,0 +1,25 @@
+<% content_for :title, "Links" %>
+
+<%= link_to "New link", new_link_path %>
+
+<h1>Links</h1>
+
+<div id="links">
+  <table class="table table-dark table-striped-columns table-hover align_middle">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.name %></td>
+          <td colspan="1"><%= link_to "Show", link %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

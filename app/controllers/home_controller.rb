@@ -4,6 +4,23 @@ class HomeController < ApplicationController
   def index
   end
 
+  def references
+    @references_by_year = Reference.order(year: :desc).group_by(&:year)
+    @drillings_by_year = Drilling.order(year: :desc).group_by(&:year)
+  end
+
+  def authorization
+    @link_1 = Link.find(9)
+  end
+
+  def watering_well
+    @link_1 = Link.find(10)
+  end
+  def VH_auth
+    @link_1 = Link.find(11)
+    @link_2 = Link.find(12)
+  end
+
   def price_calculator
     @num2_options = [["--0--", ""], 160, 200] 
   end

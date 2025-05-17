@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :drillings
+  resources :references
+  resources :links
   resources :orders
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get 'profiles/show/:id', to: 'profiles#show', as: 'profiles_show'
-
 
   get "home/price_calculator", to: "home#price_calculator"
   post "home/price_calculator", to: "home#calculate_price"
