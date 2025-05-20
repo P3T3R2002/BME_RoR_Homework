@@ -4,8 +4,28 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+nem_admin_1:
+  name:   normal_user
+  email:  normal@user.com
+  phone:  +36301230123
+  is_admin: false
+  encrypted_password: "$2a$12$O6RLaWSP/KK4i9jEifr9v.fr9JScq1vDm3apelF8Yj3UcUt5vkXMi"
+
 # column: value
 #
-two: {}
+admin:
+  name:   admin
+  email:  admin@admin.com
+  phone:  +36309873456
+  is_admin: true
+  encrypted_password: "$2a$12$O6RLaWSP/KK4i9jEifr9v.fr9JScq1vDm3apelF8Yj3UcUt5vkXMi"
 # column: value
+
+<% for i in 1..9 do %>
+user_<%= i %>:
+  name:   normal_user_<%= i %>
+  email:  normal_user_<%= i %>@user.com
+  phone:  +3630111222<%= i %>
+  is_admin: false
+  encrypted_password: "$2a$12$O6RLaWSP/KK4i9jEifr9v.fr9JScq1vDm3apelF8Yj3UcUt5vkXMi"
+<% end %>

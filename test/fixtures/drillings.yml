@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  year: 1
-  place: MyString
-  name: MyString
-  type: 
-  amount: 1
-  drilled_depth: 1
+drilling_1:
+  year: 2016
+  place: "Csapod, bányakutatás"
+  name: "Csapod Önkormányzat"
+  drilling_type: "bányakutatás"
+  amount: 8
+  drilled_depth: 120
 
-two:
-  year: 1
-  place: MyString
-  name: MyString
-  type: 
-  amount: 1
-  drilled_depth: 1
+drilling_2:
+  year: 2013
+  place: "Szombathely, Magyar Kéményseprő Kft. telephelye"
+  name: "Magyar Kéményseprő Kft."
+  drilling_type: "figyelőkút"
+  amount: 2
+  drilled_depth: 12

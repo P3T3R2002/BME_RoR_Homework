@@ -8,6 +8,25 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # db/seeds.rb
+
+
+
+Link.delete_all
+Link.create!([
+  { name: "A kútfúrás törvényi szabályozásai",                              link: "http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=A0700101.KVV", description: "A vízkútfúrás szakmai követelményeiről, és a felszín alatti vízkészletekbe történő beavatkozásról."},
+  { name: "Engedélyezési tervek tartalmi követelményei cégeknek",           link: "https://njt.hu/jogszabaly/2017-41-20-0A",                      description: "A vízjogi engedélyezési eljáráshoz szükséges kérelemről és mellékleteiről szóló kormányrendelet."},
+  { name: "Sérülékeny vízbázisok védelme",                                  link: "http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=99700123.KOR", description: "A vízbázisok, a távlati vízbázisok, valamint az ivóvízellátást szolgáló vízilétesítmények védelméről szóló kormányrendelet."},
+  { name: "Vízügyi Hatóság eljárási díjai cégeknek",                        link: "https://njt.hu/jogszabaly/2015-13-20-0A",                      description: "A környezetvédelmi, természetvédelmi, valamint a vízügyi hatósági eljárások igazgatási szolgáltatási díjairól."},
+  { name: "Jegyzős kút adatlap minta",                                      link: "furt_kut_jegyzoi_eng.doc",                                     description: "Jegyzős kút adatlap minta."},
+  { name: "Milyen részekből áll a professszionálisan működő kút?",          link: "megfigyelokut_muszaki_kikepzes.xls",                           description: "Kútszerkezeti terv megfigyelő kút esetén."},
+  { name: "Milyen részekből áll a professszionálisan működő kút?",          link: "termelokut_muszaki_kikepzes.xls",                              description: "Kútszerkezeti terv termelőkút esetén."},
+  { name: "Műszaki adatlap minta",                                          link: "Muszaki_adatlap_minta.xls",                                    description: "Műszaki adatlap minta."},
+  { name: "A vízgazdálkodási hatósági jogkör gyakorlásáról szóló rendelet", link: "http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=99600072.KOR", description: "A vízgazdálkodási hatósági jogkör gyakorlásáról szóló 72/1996. (V.22.) Korm. rendelet."},
+  { name: "101/2007. (XII. 23.) KvVM rendelet",                             link: "http://net.jogtar.hu/jr/gen/hjegy_doc.cgi?docid=A0700101.KVV", description: "101/2007. (XII. 23.) KvVM rendelet"},
+  { name: "41/2017. (XII. 29.) BM rendelet",                                link: "https://njt.hu/jogszabaly/2017-41-20-0A",                      description: "41/2017. (XII. 29.) BM rendelet"},
+  { name: "13/2015. (III. 31.) BM rendelet",                                link: "https://njt.hu/jogszabaly/2015-13-20-0A",                      description: "13/2015. (III. 31.) BM rendelet"},
+])
+
 Reference.delete_all
 Reference.create!([
   { year: 2016, project_description: "Tomanóczy Péter (Gersekarát) Gersekarát 0134/34. hrsz. ingatlanon öntözőrendszer és öntözőkút", project_type: "Vízjogi létesítési engedélyes terve" },

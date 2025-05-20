@@ -1,0 +1,9 @@
+link_1:
+  name: google_link
+  link: www.google.com
+  description: It is a google link.
+  
+link_2:
+  name: youtube_link
+  link: www.youtube.com
+  description: It is a youtube link.

@@ -2,11 +2,21 @@ require "test_helper"
 
 class ReferencesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @reference = references(:one)
+    @reference = references(:ref_1)
   end
 
-  test "should get index" do
+  test "should get index_1" do
     get references_url
+    assert_response :success
+  end
+
+  test "should get index_2" do
+    get url_for(controller: "references") 
+    assert_response :success
+  end
+  
+  test "should get index_3" do
+    get references_path
     assert_response :success
   end
 
@@ -17,10 +27,10 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create reference" do
     assert_difference("Reference.count") do
-      post references_url, params: { reference: { description: @reference.description, link: @reference.link, name: @reference.name } }
+      post references_url, params: { reference: { year: @reference.year, project_description: @reference.project_description, project_type: @reference.project_type} }
     end
 
-    assert_redirected_to reference_url(Reference.last)
+    assert_redirected_to reference_url(reference.last)
   end
 
   test "should show reference" do
@@ -34,7 +44,7 @@ class ReferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update reference" do
-    patch reference_url(@reference), params: { reference: { description: @reference.description, link: @reference.link, name: @reference.name } }
+    patch reference_url(@reference), params: { reference: {  year: @reference.year, project_description: @reference.project_description, project_type: @reference.project_type } }
     assert_redirected_to reference_url(@reference)
   end
 

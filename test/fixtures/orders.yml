@@ -1,11 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  place: MyString
-  diameter: 1
-  depth: 1
+order_one:
+  place:    MyString_one
+  diameter: 160
+  depth:    1
+  user:  nem_admin
 
-two:
-  place: MyString
-  diameter: 1
+
+order_two:
+  place: MyString_two
+  diameter: 200
   depth: 1
+  user: admin
+
+<% for i in 1..9 do %>
+order_<%= i %>:
+  place:    MyString_<%= i %>
+  diameter: 100
+  depth:    <%= i %>
+  user:  user_<%= i %>
+<% end %>
