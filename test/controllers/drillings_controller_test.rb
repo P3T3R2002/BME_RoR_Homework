@@ -2,7 +2,7 @@ require "test_helper"
 
 class DrillingsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @drilling = drillings(:one)
+    @drilling = drillings(:drilling_1)
   end
 
   test "should get index" do
@@ -17,7 +17,7 @@ class DrillingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create drilling" do
     assert_difference("Drilling.count") do
-      post drillings_url, params: { drilling: { amount: @drilling.amount, drilled_depth: @drilling.drilled_depth, name: @drilling.name, place: @drilling.place, type: @drilling.type, year: @drilling.year } }
+      post drillings_url, params: { drilling: { amount: @drilling.amount, drilled_depth: @drilling.drilled_depth, name: @drilling.name, place: @drilling.place, drilling_type: @drilling.drilling_type, year: @drilling.year } }
     end
 
     assert_redirected_to drilling_url(Drilling.last)
@@ -34,7 +34,7 @@ class DrillingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update drilling" do
-    patch drilling_url(@drilling), params: { drilling: { amount: @drilling.amount, drilled_depth: @drilling.drilled_depth, name: @drilling.name, place: @drilling.place, type: @drilling.type, year: @drilling.year } }
+    patch drilling_url(@drilling), params: { drilling: { amount: @drilling.amount, drilled_depth: @drilling.drilled_depth, name: @drilling.name, place: @drilling.place, drilling_type: @drilling.drilling_type, year: @drilling.year } }
     assert_redirected_to drilling_url(@drilling)
   end
 

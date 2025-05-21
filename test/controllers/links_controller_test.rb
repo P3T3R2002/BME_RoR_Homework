@@ -8,7 +8,6 @@ class LinksControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get url_for(controller: "links") 
-    puts request.url
     assert_response :success
   end
 

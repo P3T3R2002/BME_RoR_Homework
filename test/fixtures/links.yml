@@ -1,9 +1,19 @@
 link_1:
+  id: 1
   name: google_link
   link: www.google.com
   description: It is a google link.
   
 link_2:
+  id: 2
   name: youtube_link
   link: www.youtube.com
   description: It is a youtube link.
+
+<% for i in 1..10 do %>
+link_<%= 2+i %>:
+  id: <%= 2+i %>
+  name: youtube_link
+  link: www.youtube.com
+  description: It is a youtube link.
+<% end %>

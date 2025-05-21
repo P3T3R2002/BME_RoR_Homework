@@ -4,7 +4,7 @@ order_one:
   place:    MyString_one
   diameter: 160
   depth:    1
-  user:  nem_admin
+  user:  nem_admin_1
 
 
 order_two:
@@ -16,7 +16,13 @@ order_two:
 <% for i in 1..9 do %>
 order_<%= i %>:
   place:    MyString_<%= i %>
-  diameter: 100
+  diameter: 200
   depth:    <%= i %>
   user:  user_<%= i %>
 <% end %>
+
+wrong_order:
+  place:    MyString_one
+  diameter: 100
+  depth:    1
+  user:  nem_admin_1

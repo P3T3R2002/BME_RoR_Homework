@@ -16,7 +16,8 @@ module BmeRoRHomework
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    config.hosts << "www.example.com"
+    # config.hosts << "www.example.com"
+    config.hosts << "localhost:3000"
 
     # Configuration for the application, engines, and railties goes here.
     #

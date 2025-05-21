@@ -4,50 +4,49 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   
   setup do
-    @user = users(:user_1) # from fixtures
-    sign_in @user
+    sign_in users(:user_1) # from fixtures
+    @user = users(:user_1)
     @order = orders(:order_1)
   end
 
   test "should get index" do
-    host! "localhost:3000"
-    get orders_path
+    get orders_url
     puts request.url  # or something that returns HTML
 
     assert_response :success
   end
 
   test "should get new" do
-    get order_path(@order)
+    get order_url(@order)
     assert_response :success
   end
 
   test "should create order" do
     assert_difference("Order.count") do
-      post new_order_path, params: { order: { depth: @order.depth, diameter: @order.diameter, place: @order.place } }
+      post orders_url, params: { order: { depth: @order.depth, diameter: @order.diameter, place: @order.place, user_id: @user.id } }
     end
 
-    assert_redirected_to order_path(Order.last)
+    assert_redirected_to order_url(Order.last)
   end
 
   test "should show order" do
-    get order_path(@order)
+    get order_url(@order)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_order_path(@order)
+    get edit_order_url(@order)
     assert_response :success
   end
 
   test "should update order" do
-    patch order_path(@order), params: { order: { depth: @order.depth, diameter: @order.diameter, place: @order.place } }
-    assert_redirected_to order_path(@order)
+    patch order_url(@order), params: { order: { depth: @order.depth, diameter: @order.diameter, place: @order.place } }
+    assert_redirected_to order_url(@order)
   end
 
   test "should destroy order" do
     assert_difference("Order.count", -1) do
-      delete order_path(@order)
+      delete order_url(@order)
     end
 
     assert_redirected_to orders_url
