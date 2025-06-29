@@ -1,15 +1,7 @@
 # README
 
-A felhasználó lehet admin, de ahhoz kell egy kulcs a .evn fájlban.
-*app/controllers/users/registrations_controller.rb/create* függvényból ki lehet olvasni a kulcsot.
-Meg lehet oldani, hogy ez ne látszódjon, vagy jó ez így?
+Egy honlap elkészítése a Webfejlesztés villámgyorsan Ruby on Rails alapokon BME VIK szabadon választható tárgy keretein belül.
 
-Ha valami hiányzik, akkor írjon rám.
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
 Things you may want to cover:
 
